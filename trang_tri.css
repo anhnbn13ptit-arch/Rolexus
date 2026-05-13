@@ -1,9 +1,11 @@
 .btn-style {
-    background-color: #0f93c4; 
-    color: white;              
-    border-radius: 5px;        
+    background-color: #16030f; 
+    color: rgb(230, 223, 37);              
+    border-radius: 10px;        
     border: none;
-    text-align: center;          
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif  
+    ;font-style:italic ;        
 }
 .supercool_style{background-color:aquamarine;
 color:blue;border-radius:20px;border:none}
