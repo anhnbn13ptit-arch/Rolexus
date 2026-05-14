@@ -9,3 +9,15 @@
 }
 .supercool_style{background-color:aquamarine;
 color:blue;border-radius:20px;border:none}
+.product-card {
+    width: 200px;       
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.container {
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; 
+    padding: 20px;
+}
