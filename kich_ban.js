@@ -1,5 +1,64 @@
-const nut_menu =document.getElementById("menu_button")
-const nut_con_menu=document.getElementsByClassName("con_menu")
+
+const openBtn = document.getElementById('open-menu-btn');
+const closeBtn = document.getElementById('close-menu-btn');
+const sidebar = document.getElementById('rolexus-sidebar');
+const overlay = document.getElementById('menu-overlay');
+
+// Hàm mở menu
+function openMenu() {
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
+}
+
+// Hàm đóng menu
+function closeMenu() {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+}
+
+// Xử lý thao tác click chuột của user
+openBtn.addEventListener('click', openMenu);
+closeBtn.addEventListener('click', closeMenu);
+
+// Nếu người dùng ấn vào bên ngoài menu danh mục sẽ tự động đóng
+overlay.addEventListener('click', closeMenu);
+
+
+const searchBtn = document.getElementById('search-btn');
+const searchBar = document.getElementById('search-bar');
+
+const userBtn = document.getElementById('user-btn');
+const loginModal = document.getElementById('login-modal');
+const closeLoginBtn = document.getElementById('close-login-btn');
+
+// Đóng/Mở thanh tìm kiếm
+function toggleSearch() {
+    if (searchBar.classList.contains('active')) {
+        // Nếu đang mở -> thì đóng lại
+        searchBar.classList.remove('active');
+    } else {
+        // Nếu đang đóng -> thì mở ra
+        searchBar.classList.add('active');
+    }
+}
+
+// Mở form đăng nhập
+function openLoginForm() {
+    loginModal.classList.add('active');
+}
+
+//Đóng form đăng nhập
+function closeLoginForm() {
+    loginModal.classList.remove('active');
+}
+
+//Gắn event listener khi người dùng Click
+searchBtn.addEventListener('click', toggleSearch);
+userBtn.addEventListener('click', openLoginForm);
+closeLoginBtn.addEventListener('click', closeLoginForm);
+
+
+
 function doimaunguoc(danh_sach) {
     for (let i = 0; i < danh_sach.length; i++) {
         danh_sach[i].style.color = "rgb(255, 255, 255)";
@@ -11,12 +70,6 @@ function doimau(danh_sach) {
     }
 }
 
-count=1
-nut_menu.addEventListener("click",function(){count+=1;if(count%2==0)
-    {doimau(nut_con_menu)}else{doimaunguoc(nut_con_menu)}})
-
-nut_menu.addEventListener("mouseenter",function(){nut_menu.style.backgroundColor="rgb(51,51,51)"})
-nut_menu.addEventListener("mouseleave",function(){nut_menu.style.backgroundColor="rgb(208,210,211)"})
 
 
 
@@ -64,3 +117,5 @@ back_btn.addEventListener('click',function(){Mo_Menu()})})
 
 
 Mo_Menu();
+
+
