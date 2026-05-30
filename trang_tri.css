@@ -249,7 +249,7 @@ color:blue;border-radius:20px;border:none}
   transform: translateY(0); /* Nút thụt xuống */
   box-shadow: 0 1px 2px rgba(98, 98, 114, 0.2);
 }
-.close-menu-btn{
+#close-menu-btn{
 /* Thiết kế tĩnh - Màu đỏ crimson cực chất */
   background-color: #d32f2f; /* Màu đỏ crimson đậm */
   color: #ffffff;
@@ -271,7 +271,7 @@ color:blue;border-radius:20px;border:none}
 }
 
 /* Hiệu ứng khi di chuột qua - "Glow" và Trượt */
-.close-menu-btn:hover {
+#close-menu-btn:hover {
   background-color: #e53935; /* Đỏ tươi hơn tí */
   border-color: #d32f2f;
   transform: translateX(-4px); /* Trượt nhẹ sang trái tạo cảm giác 'về' */
@@ -279,7 +279,7 @@ color:blue;border-radius:20px;border:none}
 }
 
 /* Hiệu ứng khi nhấn click */
-.close-menu-btn:active {
+#close-menu-btn:active {
   transform: translateX(0) scale(0.98); /* Thụt xuống và thu nhỏ nhẹ */
   box-shadow: 0 1px 3px rgba(211, 47, 47, 0.5);
 }
