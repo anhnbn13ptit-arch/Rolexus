@@ -196,5 +196,67 @@ color:blue;border-radius:20px;border:none}
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    box-sizing: border-box;
+    box-sizing: border-box}
+/* Class "siêu nút" - tất cả trong 1 */
+.nut_menu_style {
+  /* Thiết kế tĩnh */
+  background-color: #07070e; /* Màu tím sang chảnh */
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  
+  /* Hiệu ứng chuyển động mượt */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(231, 231, 237, 0.949);
+  border: 2px solid #b3cd48
+}
+
+/* Hiệu ứng khi di chuột qua */
+.nut_menu:hover {
+  background-color: #d8e546; /* Đậm hơn tí */
+  transform: translateY(-2px); /* Nút "bay" lên */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Đổ bóng sâu hơn */
+}
+
+/* Hiệu ứng khi nhấn click */
+.nut_menu:active {
+  transform: translateY(0); /* Nút thụt xuống */
+  box-shadow: 0 1px 2px rgba(98, 98, 114, 0.2);
+}
+#close-menu-btn{
+/* Thiết kế tĩnh - Màu đỏ crimson cực chất */
+  background-color: #d32f2f; /* Màu đỏ crimson đậm */
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 8px; /* Bo góc tinh tế */
+  font-weight: 700;
+  border: 2px solid #b71c1c; /* Viền đỏ đậm hơn để tạo khối */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  text-transform: uppercase; /* Viết hoa cho dứt khoát */
+  letter-spacing: 0.5px;
+  
+  /* Hiệu ứng chuyển động mượt */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(211, 47, 47, 0.3);
+}
+
+/* Hiệu ứng khi di chuột qua - "Glow" và Trượt */
+#close-menu-btn:hover {
+  background-color: #e53935; /* Đỏ tươi hơn tí */
+  border-color: #d32f2f;
+  transform: translateX(-4px); /* Trượt nhẹ sang trái tạo cảm giác 'về' */
+  box-shadow: 0 0 15px rgba(229, 57, 53, 0.6); /* Hào quang đỏ rực rỡ */
+}
+
+/* Hiệu ứng khi nhấn click */
+#close-menu-btn:active {
+  transform: translateX(0) scale(0.98); /* Thụt xuống và thu nhỏ nhẹ */
+  box-shadow: 0 1px 3px rgba(211, 47, 47, 0.5);
 }
