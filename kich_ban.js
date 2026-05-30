@@ -17,8 +17,8 @@ function closeMenu() {
 }
 
 // Xử lý thao tác click chuột của user
-openBtn.addEventListener('click', openMenu);
-closeBtn.addEventListener('click', closeMenu);
+openBtn?.addEventListener('click', openMenu);
+closeBtn?.addEventListener('click', closeMenu);
 
 // Nếu người dùng ấn vào bên ngoài menu danh mục sẽ tự động đóng
 overlay.addEventListener('click', closeMenu);
@@ -78,17 +78,17 @@ function doimau(danh_sach) {
 
 
 
-class SanPham{constructor(id,ten,gia,anh,gioi_tinh="Nam"){this.id_sp=id,this.ten=ten;this.gia=gia+" vnd";this.gioi_tinh=gioi_tinh,this.anh=anh};HienThiMenu(){return `
+class SanPham{constructor(id,ten,gia,anh,gioi_tinh="Nam"){this.id=id,this.ten=ten;this.gia=gia+" vnd";this.gioi_tinh=gioi_tinh,this.anh=anh};HienThiMenu(){return `
         <div class="product-card"> 
             <img src="${this.anh}" style="width:100%">
             <h3>${this.ten}</h3> 
             <p>Giá: <b>${this.gia}</b></p> 
             <p>Giành cho: ${this.gioi_tinh}</p>
-            <button id="${this.id}" style="background-color:#000000,color:#FFD700,border-radius:25%">Xem chi tiết</button>
+            <button id="${this.id}" class="Xem_chi_tiet">Xem chi tiết</button>
         </div>
     `;};Hien_Thi_Rieng(){return` 
         <div>
-            <button id="back" style="border-radius:25%"> <- </button>
+            
             <p> ${this.ten}</p>
         <div class ="product-solo" style="display:flex">
             <img src="${this.anh}" style="width:50%">
@@ -114,9 +114,7 @@ for(let i of list_you_need){product_hien_thi_ay +=i.HienThiMenu()};
 product_hien_thi.innerHTML= product_hien_thi_ay;
 for(let i of list_you_need)
     {document.getElementById(`${i.id}`).addEventListener("click",function (){product_hien_thi.innerHTML=i.Hien_Thi_Rieng();
-let back_btn=document.getElementById("back");back_btn.addEventListener('mouseenter',function(){back_btn.style.backgroundColor='rgb(51,51,51)'});
-back_btn.addEventListener('mouseleave',function(){back_btn.style.backgroundColor='rgb(252, 252, 244)'})
-back_btn.addEventListener('click',function(){Mo_Menu()})})
+})
 }}
 
 
