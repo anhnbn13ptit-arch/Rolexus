@@ -16,13 +16,13 @@ color:blue;border-radius:20px;border:none}
 }
 .container {
     display: grid;
-    
+     
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px; 
     padding: 20px;
 }
 .product-solo {width:700px;height:300px;border-radius:25%; }
-#open-menu-btn {
+#open-menu-btn {width:190px;
 	box-shadow:inset 1px 0px 21px 6px #bfc21b;
 	background-color:#172e1d;
 	border-radius:19px;
@@ -306,3 +306,33 @@ color:blue;border-radius:20px;border:none}
 	position:relative;
 	top:1px;
 }
+/* From Uiverse.io by laminelawal */ 
+#input {
+  padding: 10px;
+  width: 200px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0 1px  rgb(93, 178, 218);
+  font-size: 18px;
+  transition: width 0.3s;
+  font-family: Consolas,monaco,monospace;
+}
+
+#input:focus {
+  outline: 1px solid rgb(2, 8, 186);
+  box-shadow: none;
+  width: 280px;
+}
+
+#input::placeholder {
+  color: rgb(255, 0, 64);
+}
+#input_boc {
+    display: flex;        /* Kích hoạt chế độ Flexbox */
+    justify-content: flex-end; /* ĐẨY MỌI THỨ VỀ BÊN PHẢI */
+    width: 100%;          /* Đảm bảo thẻ bao rộng hết cỡ */
+}
+#anh_search{width:30px}
+#search-btn{transition:0.4s;border-radius: 30%;border-color: #07070e;}
+#search-btn:hover{background-color: #96e6eb;transform: scale3d(1.1);}
