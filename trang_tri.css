@@ -9,11 +9,26 @@
 }
 .supercool_style{background-color:aquamarine;
 color:blue;border-radius:20px;border:none}
-.product-card {
+.product-card {border: 25px ridge #05141E;text-align: center;
+border-radius: 17px 18px 40px 5px;
     width: 200px;       
-    border: 1px solid #ccc;
-    padding: 10px;
+    border: 5px solid #0e0e0e;
+    padding: 10px;height:100%
 }
+.product-card img {width: 280px;text-align: center;-webkit-box-shadow: -8px 6px 10px 1px #000000; 
+box-shadow: -8px 6px 10px 1px #000000;
+  height: 100px;
+  border-radius: 22px;
+  background-color: #eeeeee;
+  border: 3px solid #14130C;
+    width: 100%;
+    height: 200px; /* Bạn có thể thay đổi số này cho phù hợp với thiết kế */
+    object-fit: cover; /* Cắt cúp ảnh cho vừa khung mà không bị bóp méo */
+}
+.product-card p{color: #FFFFFF;
+background: #333333;border-radius: 15px;
+text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;}
+.product-card h3{font-style: oblique;}
 .container {
     display: grid;
      
@@ -297,7 +312,7 @@ color:blue;border-radius:20px;border:none}
 	font-style:italic;
 	padding:16px 31px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #2f6627;
+	text-shadow:0px 1px 0px #2f6627;text-shadow: #2cc21b ;
 }
 .Xem_chi_tiet:hover {
 	background-color:#cacc3f;
@@ -336,3 +351,4 @@ color:blue;border-radius:20px;border:none}
 #anh_search{width:30px}
 #search-btn{transition:0.4s;border-radius: 30%;border-color: #07070e;}
 #search-btn:hover{background-color: #96e6eb;transform: scale3d(1.1);}
+#khau_hieu{font-size: 15px;display: flex;justify-content: center;}

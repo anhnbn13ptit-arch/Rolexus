@@ -100,13 +100,13 @@ class SanPham{constructor(id,ten,gia,anh,gioi_tinh="Nam"){this.id=id,this.ten=te
                 <h2>nếu có hư hỏng hãy gọi tổng đài 676767 để được bảo hành </h2>
             </div>
         </div>`}}
-const Product_list =[new SanPham("1","Đồng hồ kẻ chinh phục thời gian",3000000,"anh/ke_chinh_phuc_thoi_gian.jpg"),
-    new SanPham("2","vòng cổ sigma",2500000,"anh/vong_co_sigma.png"),
-new SanPham("3","mũ điên rồ",50000,"anh/crazy_head.jpg"),
-new SanPham("4","vương miệng nữ hoàng",20000000,"anh/vuong-mien-nu-hoang.jpg","Nữ"),
-new SanPham("5","nhẫn công chúa",30000,"anh/nhan_cong_chua.jpg","Nữ"),
-new SanPham("6","vòng tay chúa cute",40000,"anh/vong_tay_cute_god.jpg","Nữ"),
-new SanPham("7","kính luxurius",50000,'anh/kinh_luxury.jpg')];
+const Product_list =[new SanPham("1","Đồng hồ kẻ chinh phục ",3000000,"anh/ke_chinh_phuc_thoi_gian.jpg"),
+    new SanPham("2","Vòng cổ sigma",2500000,"anh/vong_co_sigma.png"),
+new SanPham("3","Mũ điên rồ",50000,"anh/crazy_head.jpg"),
+new SanPham("4","Vương miệng nữ hoàng",20000000,"anh/vuong-mien-nu-hoang.jpg","Nữ"),
+new SanPham("5","Nhẫn công chúa",30000,"anh/nhan_cong_chua.jpg","Nữ"),
+new SanPham("6","Vòng tay chúa cute",40000,"anh/vong_tay_cute_god.jpg","Nữ"),
+new SanPham("7","Kính luxurius",50000,'anh/kinh_luxury.jpg')];
 const product_hien_thi = document.getElementById("product-list");
 
 function Mo_Menu(list_you_need){product_hien_thi_ay ="";
