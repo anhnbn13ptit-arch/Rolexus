@@ -87,17 +87,16 @@ class SanPham{constructor(id,ten,gia,anh,gioi_tinh="Nam"){this.id=id,this.ten=te
             <button id="${this.id}" class="Xem_chi_tiet">Xem chi tiết</button>
         </div>
     `;};Hien_Thi_Rieng(){return` 
-        <div>
-            
-            <p> ${this.ten}</p>
+        
         <div class ="product-solo" style="display:flex">
             <img src="${this.anh}" style="width:50%">
-            <div style="flex:1">
-                <h1>tên sản phẩm : ${this.ten}</h1>
-                <h2>Giá:${this.gia}</h2>
-                <h2>Giành cho :${this.gioi_tinh}</h2>
-                <h2>địa điểm mua:Rolexus ,tầng 12,Landmark 36</h2>
-                <h2>nếu có hư hỏng hãy gọi tổng đài 676767 để được bảo hành </h2>
+            
+            <div>
+                <h1>  Tên sản phẩm : ${this.ten}</h1>
+                <h2>  Giá:${this.gia}</h2>
+                <h2>  Giành cho :${this.gioi_tinh}</h2>
+                <h2>  Địa điểm mua:Rolexus ,tầng 12,Landmark 36</h2>
+                <h2>  Nếu có hư hỏng hãy gọi tổng đài 676767 để được bảo hành </h2>
             </div>
         </div>`}}
 const Product_list =[new SanPham("1","Đồng hồ kẻ chinh phục ",3000000,"anh/ke_chinh_phuc_thoi_gian.jpg"),
