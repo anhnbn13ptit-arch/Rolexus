@@ -95,9 +95,9 @@ class SanPham{constructor(id,ten,gia,anh,gioi_tinh="Nam"){this.id=id,this.ten=te
                 <h1>  Tên sản phẩm : ${this.ten}</h1>
                 <h2>  Giá:${this.gia}</h2>
                 <h2>  Giành cho :${this.gioi_tinh}</h2>
-                <h2>  Địa điểm:Rolexus,tầng 36 LandMark69
+                <h2>  Địa điểm:Rolexus,tầng 36 LandMark69</h2>
                 <h2>  Nếu có hư hỏng hãy gọi tổng đài 676767 để được bảo hành </h2>
-                <button id="buy_${this.ten}_now">Mua Ngay</button>
+                <button id="buy_${this.ten}_now" class="nut_mua">Mua Ngay</button>
                 
             </div>
             
@@ -124,5 +124,5 @@ for(let i of list_you_need)
 
 
 Mo_Menu(Product_list);
-let luot_mua=0
+
 
