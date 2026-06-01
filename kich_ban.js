@@ -95,10 +95,16 @@ class SanPham{constructor(id,ten,gia,anh,gioi_tinh="Nam"){this.id=id,this.ten=te
                 <h1>  Tên sản phẩm : ${this.ten}</h1>
                 <h2>  Giá:${this.gia}</h2>
                 <h2>  Giành cho :${this.gioi_tinh}</h2>
-                <h2>  Địa điểm mua:Rolexus ,tầng 12,Landmark 36</h2>
+                <h2>  Địa điểm:Rolexus,tầng 36 LandMark69
                 <h2>  Nếu có hư hỏng hãy gọi tổng đài 676767 để được bảo hành </h2>
+                <button id="buy_${this.ten}_now">Mua Ngay</button>
+                
             </div>
-        </div>`}}
+            
+            
+            
+        </div>
+        `}}
 const Product_list =[new SanPham("1","Đồng hồ kẻ chinh phục ",3000000,"anh/ke_chinh_phuc_thoi_gian.jpg"),
     new SanPham("2","Vòng cổ sigma",2500000,"anh/vong_co_sigma.png"),
 new SanPham("3","Mũ điên rồ",50000,"anh/crazy_head.jpg"),
@@ -112,11 +118,11 @@ function Mo_Menu(list_you_need){product_hien_thi_ay ="";
 for(let i of list_you_need){product_hien_thi_ay +=i.HienThiMenu()};
 product_hien_thi.innerHTML= product_hien_thi_ay;
 for(let i of list_you_need)
-    {document.getElementById(`${i.id}`).addEventListener("click",function (){product_hien_thi.innerHTML=i.Hien_Thi_Rieng();
+    {document.getElementById(`${i.id}`).addEventListener("click",function (){product_hien_thi.innerHTML=i.Hien_Thi_Rieng();document.getElementById(`buy_${i.ten}_now`).addEventListener(`click`,function(){console.log(`đã mua ${i.ten}`)})
 })
 }}
 
 
 Mo_Menu(Product_list);
-
+let luot_mua=0
 
