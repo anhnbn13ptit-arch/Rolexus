@@ -1,6 +1,4 @@
-// ==========================================
-// 1. KHAI BÁO CÁC NÚT BẤM VÀ GIAO DIỆN CƠ BẢN
-// ==========================================
+// Khai báo biến
 const openBtn = document.getElementById('open-menu-btn');
 const closeBtn = document.getElementById('close-menu-btn');
 const sidebar = document.getElementById('rolexus-sidebar');
@@ -19,9 +17,7 @@ openBtn?.addEventListener('click', openMenu);
 closeBtn?.addEventListener('click', closeMenu);
 overlay?.addEventListener('click', closeMenu);
 
-// ==========================================
-// 2. XỬ LÝ TÌM KIẾM (ĐÓNG/MỞ VÀ LỌC TỪ KHÓA)
-// ==========================================
+//Tìm kiếm
 const searchBtn = document.getElementById('search-btn');
 const searchBar = document.getElementById('search-bar');
 const thanhTimKiem = document.getElementById('input');
@@ -41,10 +37,7 @@ thanhTimKiem?.addEventListener('input', function() {
     }
 });
 
-// ==========================================
-// 3. HỆ THỐNG ĐĂNG NHẬP
-// ==========================================
-const userBtn = document.getElementById('user-btn');
+// Hệ thống đăng nhập
 const loginModal = document.getElementById('login-modal');
 const closeLoginBtn = document.getElementById('close-login-btn');
 const nutXacNhanAuth = document.getElementById('nut_dang_nhap');
@@ -53,7 +46,6 @@ const toggleAuthText = document.getElementById('toggle-auth-text');
 const xacNhanMatKhauInput = document.getElementById('xac_nhan_mat_khau');
 const br1 = document.getElementById('br_xac_nhan');
 const br2 = document.getElementById('br_xac_nhan_2');
-
 // Lấy danh sách tài khoản đã lưu, mặc định có 1 tài khoản admin
 let danhSachTaiKhoan = JSON.parse(localStorage.getItem('rolexus_users')) || [
     { ten: 'admin', pass: '123456' }
@@ -61,14 +53,13 @@ let danhSachTaiKhoan = JSON.parse(localStorage.getItem('rolexus_users')) || [
 
 let dangO_CheDoDangNhap = true;
 
-// Bật/Tắt khung Modal
 userBtn?.addEventListener('click', () => { loginModal.classList.add('active'); });
 closeLoginBtn?.addEventListener('click', () => { loginModal.classList.remove('active'); });
 
-// Chuyển đổi giữa form Đăng Nhập và Đăng Ký
 toggleAuthText?.addEventListener('click', function() {
     dangO_CheDoDangNhap = !dangO_CheDoDangNhap;
 
+    // Chuyển đổi giữa form Đăng Nhập và Đăng Ký
     if (dangO_CheDoDangNhap) {
         authTitle.innerText = "Đăng Nhập";
         nutXacNhanAuth.innerText = "Đăng Nhập Ngay";
@@ -86,7 +77,6 @@ toggleAuthText?.addEventListener('click', function() {
     }
 });
 
-// Xử lý khi bấm nút Xác nhận (Đăng nhập hoặc Đăng ký)
 if (nutXacNhanAuth) {
     nutXacNhanAuth.addEventListener('click', function() {
         const ten = document.getElementById('ten_dang_nhap').value.trim();
@@ -95,7 +85,6 @@ if (nutXacNhanAuth) {
         if (ten === "" || pass === "") return alert("Vui lòng điền đầy đủ thông tin!");
 
         if (dangO_CheDoDangNhap) {
-            // --- Logic Đăng nhập ---
             const userTonTai = danhSachTaiKhoan.find(u => u.ten === ten && u.pass === pass);
             if (userTonTai) {
                 alert(`Đăng nhập thành công! Chào mừng ${ten}.`);
@@ -106,19 +95,16 @@ if (nutXacNhanAuth) {
                 alert("Sai tên đăng nhập hoặc mật khẩu! Vui lòng thử lại.");
             }
         } else {
-            // --- Logic Đăng ký ---
             const xacNhanPass = xacNhanMatKhauInput.value.trim();
             if (pass !== xacNhanPass) return alert("Mật khẩu xác nhận không khớp!");
 
             const kiemTraTrungTen = danhSachTaiKhoan.find(u => u.ten === ten);
             if (kiemTraTrungTen) return alert("Tên tài khoản này đã có người sử dụng!");
 
-            // Lưu tài khoản mới vào hệ thống
             danhSachTaiKhoan.push({ ten: ten, pass: pass });
             localStorage.setItem('rolexus_users', JSON.stringify(danhSachTaiKhoan));
             alert("Đăng ký thành công! Bạn có thể đăng nhập ngay.");
 
-            // Tự động quay về form đăng nhập
             toggleAuthText.click();
             document.getElementById('mat_khau').value = "";
             xacNhanMatKhauInput.value = "";
@@ -126,9 +112,7 @@ if (nutXacNhanAuth) {
     });
 }
 
-// ==========================================
-// 4. CLASS SẢN PHẨM & DỮ LIỆU
-// ==========================================
+
 class SanPham {
     constructor(id, ten, gia, anh, gioi_tinh="Nam") {
         this.id = id;
@@ -180,9 +164,7 @@ const Product_list = [
 
 const product_hien_thi = document.getElementById("product-list");
 
-// ==========================================
-// 5. HIỂN THỊ VÀ LỌC DANH MỤC
-// ==========================================
+
 function Mo_Menu(list_you_need) {
     if (!product_hien_thi) return;
     let product_hien_thi_ay = "";
@@ -202,7 +184,6 @@ function Mo_Menu(list_you_need) {
     }
 }
 
-// Bắt sự kiện lọc Danh Mục (Code cũ của bạn)
 const menu_btns = document.querySelectorAll('.nut_menu');
 const All_sp_btn = document.getElementById('Product_list_btn');
 
@@ -210,7 +191,6 @@ menu_btns.forEach(btn => {
     btn.addEventListener('click', function() {
         let list = [];
         for (let u of Product_list) {
-            // Giữ nguyên công thức lọc của bạn
             if (u.gioi_tinh.length == btn.id.length - 4) {
                 list.push(u);
             }
@@ -225,12 +205,9 @@ All_sp_btn?.addEventListener('click', function() {
     closeMenu();
 });
 
-// Chạy hiển thị màn hình chính lúc mới vào trang
 Mo_Menu(Product_list);
 
-// ==========================================
-// 6. XỬ LÝ GIỎ HÀNG
-// ==========================================
+
 const cartBtn = document.getElementById('cart-btn');
 const cartModal = document.getElementById('cart-modal');
 const closeCartBtn = document.getElementById('close-cart-btn');
