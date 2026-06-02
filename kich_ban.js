@@ -175,7 +175,8 @@ const Product_list = [
     new SanPham("4","Vương miệng hoàng gia",200000,"anh/vuong-mien-nu-hoang.jpg","Nữ"),
     new SanPham("5","Nhẫn bạc đính đá ",30000,"anh/nhan_cong_chua.jpg","Nữ"),
     new SanPham("6","Vòng tay pha lê",40000,"anh/vong_tay_cute_god.jpg","Nữ"),
-    new SanPham("7","Kính mạ vàng luxury",500000,'anh/kinh_luxury.jpg')
+    new SanPham("7","Kính mạ vàng luxury",500000,'anh/kinh_luxury.jpg'),
+    new SanPham("8","Vòng tay rực lửa",17000,"anh/vong_tay_do.jpg"),new SanPham("9","kính thực tế siêu ảo",75000,"anh/cyberpunk.jpg"),new SanPham("10","Aó ngực phượng hoàng",400000,"anh/an_diet_quy.webp","Nữ"),new SanPham("11","Mắt kính đặm đà",68000,"anh/rainbow_ping.jpg"),new SanPham("12","Khuyên tai violet",50000,"anh/khuyen_tai_tim.webp","Nữ"),new SanPham("13","Nhẫn của Loki",45000,"anh/nhan_loki.jpg","Nữ"),new SanPham("14","Vòng cổ thiên nga",100000,"anh/thien_nga.jpg","Nữ")
 ];
 
 const product_hien_thi = document.getElementById("product-list");
