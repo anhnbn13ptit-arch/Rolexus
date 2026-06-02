@@ -52,7 +52,7 @@ let danhSachTaiKhoan = JSON.parse(localStorage.getItem('rolexus_users')) || [
 ];
 
 let dangO_CheDoDangNhap = true;
-
+userBtn=document.getElementById('user-btn')
 userBtn?.addEventListener('click', () => { loginModal.classList.add('active'); });
 closeLoginBtn?.addEventListener('click', () => { loginModal.classList.remove('active'); });
 
