@@ -22,6 +22,7 @@
         <div class="header-icons">
             
             <button id="search-btn" class="icon-btn"> <img id="anh_search" src="anh/file_he_thong/search.png"></button>
+            <button id="cart-btn" class="icon-btn">🛒 <span id="cart-count">0</span></button>
             <button id="user-btn" class="icon-btn">👤</button>
         </div>
     
@@ -30,14 +31,35 @@
     
 
     <div id="login-modal" class="modal-overlay">
-        <div class="modal-box">
+        <div class="modal-box" id="auth-box">
             <span id="close-login-btn" class="close-btn">✖</span>
-            <h2 style="font-style:italic">Đăng Nhập</h2>
-            <input type="text" class ="nhap_thong_tin" placeholder="Tên đăng nhập" class="input-field"><br>
-            <br>
-            <input type="password" class="nhap_thong_tin" placeholder="Mật khẩu" class="input-field"><br>
-            <br><br>
+            <h2 id="auth-title" style="font-style:italic">Đăng Nhập</h2>
+            
+            <input type="text" id="ten_dang_nhap" class="nhap_thong_tin" placeholder="Tên đăng nhập"><br><br>
+            <input type="password" id="mat_khau" class="nhap_thong_tin" placeholder="Mật khẩu"><br><br>
+            
+            <input type="password" id="xac_nhan_mat_khau" class="nhap_thong_tin" placeholder="Xác nhận mật khẩu" style="display: none;">
+            <br id="br_xac_nhan" style="display: none;"><br id="br_xac_nhan_2" style="display: none;">
+            
             <button id="nut_dang_nhap" class="submit-btn">Đăng Nhập Ngay</button>
+            
+            <p id="toggle-auth-text" style="margin-top: 15px; cursor: pointer; color: #fffa65; text-decoration: underline; font-size: 14px;">
+                Chưa có tài khoản? Đăng ký ngay
+            </p>
+        </div>
+    </div>
+    </div>
+    <div id="cart-modal" class="modal-overlay">
+        <div class="modal-box" style="width: 400px; height: auto; max-height: 80vh; overflow-y: auto;">
+            <span id="close-cart-btn" class="close-btn">✖</span>
+            <h2 style="font-style:italic">Giỏ Hàng Của Bạn</h2>
+            
+            <div id="cart-items-container"></div>
+            
+            <div style="margin-top: 20px; text-align: right; border-top: 2px solid #000; padding-top: 10px;">
+                <h3>Tổng: <span id="cart-total-price">0</span> VND</h3>
+            </div>
+            <button id="checkout-btn" class="nut_mua" style="width: 100%; margin-top: 10px; font-size: 20px;">Thanh Toán</button>
         </div>
     </div>
     
@@ -60,6 +82,18 @@
 
 <div id="product-list" class="container">
     
+</div>
+<div id="cart-modal" class="modal-overlay">
+    <div class="modal-box" style="width: 400px; max-height: 80vh; overflow-y: auto;">
+        <span id="close-cart-btn" class="close-btn">✖</span>
+        <h2>Giỏ Hàng Của Bạn</h2>
+        <div id="cart-items-container">
+            </div>
+        <div style="margin-top: 20px; text-align: right; border-top: 2px solid #fffa65; padding-top: 10px;">
+            <h3>Tổng: <span id="cart-total-price">0</span> VND</h3>
+        </div>
+        <button id="checkout-btn" class="submit-btn" style="width: 100%; margin-top: 10px;">Thanh Toán</button>
+    </div>
 </div>
     <button id="myBtn" class="supercool_style"></button>
     <script src="kich_ban.js"></script>
