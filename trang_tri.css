@@ -22,14 +22,14 @@ box-shadow: -8px 6px 10px 1px #000000;
   background-color: #eeeeee;
   border: 3px solid #14130C;
     width: 100%;
-    height: 200px; /* Bạn có thể thay đổi số này cho phù hợp với thiết kế */
-    object-fit: cover; /* Cắt cúp ảnh cho vừa khung mà không bị bóp méo */
+    height: 200px; 
+    object-fit: cover; 
 }
 .product-card p{color: #FFFFFF;
 background: #333333;border-radius: 15px;
 text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;}
 .product-card h3{font-style: oblique;}
-.container {background-image: url('./anh/file_he_thong/back_ground_for_product.jpeg' );-webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+.container {background-image: url('./anh/background.jpg' );-webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
 box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
     display: grid;
      
@@ -37,18 +37,49 @@ box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15p
     row-gap: 40px;column-gap: 20px; 
     padding: 20px;
 }
-.product-solo {width:900px;height:800px;border-radius:25%;gap: 30px; }
+.product-solo {
+    display: flex !important;
+    flex-direction: row !important; 
+    align-items: flex-start !important; 
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 50px !important; 
+}
+.product-solo > div {
+    display: flex !important;
+    flex-direction: column !important; 
+    justify-content: flex-start;
+    gap: 20px; 
+    flex: 1; 
+}
+
 .product-solo h1 {
     color: #FFFFFF;
     background: #232323;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 20px #49ff18;
     border-radius: 12px;
     text-align: center;
+    padding: 15px 25px !important;
+    margin: 0;
 }
-.product-solo img {border: 5px solid #05131C;
-border-radius: 27px;-webkit-box-shadow: -8px -7px 15px 5px #000000; 
-box-shadow: -8px -7px 15px 5px #000000;width:700px;height:320px}
-.product-solo h2 {font-style: oblique;}
+
+.product-solo img {
+    border: 5px solid #05131C;
+    border-radius: 27px;
+    box-shadow: -8px -7px 15px 5px #000000;
+    width: 450px !important;  
+    height: auto !important;
+    object-fit: cover;
+}
+
+/*  Các dòng chữ phụ */
+.product-solo h2 {
+    font-style: oblique;
+    margin: 0;
+    line-height: 1.6;
+}
 #open-menu-btn {width:190px;
 	box-shadow:inset 1px 0px 21px 6px #bfc21b;
 	background-color:#172e1d;
@@ -75,7 +106,7 @@ box-shadow: -8px -7px 15px 5px #000000;width:700px;height:320px}
 
 /* Thanh danh mục */
 
-/* --- 1. Lớp phủ mờ (Overlay) --- */
+/*  Lớp phủ mờ (Overlay)  */
 #menu-overlay {
     position: fixed; 
     top: 0;
@@ -85,14 +116,14 @@ box-shadow: -8px -7px 15px 5px #000000;width:700px;height:320px}
     background-color: rgba(0, 0, 0, 0.6); 
     backdrop-filter: blur(5px); 
     
-/* --- Mặc định ẩn đi --- */
+/*  Mặc định ẩn đi  */
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s ease; 
     z-index: 99; 
 }
 
-/* --- 2. Thanh menu (Sidebar) --- */
+/*  Thanh menu (Sidebar)  */
 #rolexus-sidebar {
     position: fixed;
     top: 0;
@@ -102,14 +133,14 @@ box-shadow: -8px -7px 15px 5px #000000;width:700px;height:320px}
     background-color: white;
     padding: 40px;
     z-index: 100; 
-    
-
     transform: translateX(-100%);
     transition: transform 0.4s ease; /* Hiệu ứng trượt */
+    overflow-y: auto;      
+    overflow-x: hidden;    
+    padding-bottom: 100px;
 }
 
-/* --- 3. Trạng thái MỞ (.active) --- */
-
+/* Trạng thái MỞ (.active) */
 #menu-overlay.active {
     opacity: 1;
     visibility: visible;
@@ -117,6 +148,12 @@ box-shadow: -8px -7px 15px 5px #000000;width:700px;height:320px}
 
 #rolexus-sidebar.active {
     transform: translateX(0); /* Kéo menu trở về đúng vị trí số 0 */
+}
+
+.menu-list {
+    list-style: none; /* Bỏ các dấu chấm đen mặc định của danh sách */
+    margin-top: 40px;
+    padding: 0;
 }
 
 .menu-list {
@@ -139,7 +176,7 @@ box-shadow: -8px -7px 15px 5px #000000;width:700px;height:320px}
 
 /* Tìm kiếm và người dùng */
 
-/* --- Sắp xếp Header bằng Flexbox --- */
+/* Sắp xếp Header bằng Flexbox */
 .rolexus-header {
     display: flex;
     justify-content: space-between; /* Đẩy Logo sang trái, cụm Nút sang phải */
@@ -151,7 +188,7 @@ box-shadow: -8px -7px 15px 5px #000000;width:700px;height:320px}
 
 /* Sắp xếp cụm icon */
 
-/* --- Sắp xếp cụm bên trái (Danh mục + Logo) --- */
+/* Sắp xếp cụm bên trái (Danh mục + Logo) */
 .header-left {
     display: flex;
     align-items: center; /* Căn giữa theo chiều dọc cho nút và ảnh */
@@ -203,7 +240,7 @@ box-shadow: -8px -7px 15px 5px #000000;width:700px;height:320px}
     transform: translateY(0);
 }
 
-/* --- Giao diện Đăng nhập (Modal) --- */
+/*  Giao diện Đăng nhập (Modal)  */
 .modal-overlay {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;

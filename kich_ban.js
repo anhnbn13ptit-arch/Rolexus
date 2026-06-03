@@ -6,6 +6,9 @@ const overlay = document.getElementById('menu-overlay');
 const theLoaiBtn = document.getElementById('the_loai_btn');
 const subMenuTheLoai = document.getElementById('sub_menu_the_loai');
 const theLoaiIcon = document.getElementById('the_loai_icon');
+const mucGiaBtn = document.getElementById('muc_gia_btn');
+const subMenuMucGia = document.getElementById('sub_menu_muc_gia');
+const mucGiaIcon = document.getElementById('muc_gia_icon');
 
 function openMenu() {
     sidebar.classList.add('active');
@@ -29,6 +32,18 @@ if (theLoaiBtn && subMenuTheLoai){
         } else {
             subMenuTheLoai.style.display = "none";  
             theLoaiIcon.innerText = "▼";
+        }
+    });
+}
+//Menu mức giá
+if (mucGiaBtn && subMenuMucGia){
+    mucGiaBtn.addEventListener('click',function(){
+        if (subMenuMucGia.style.display === "none") {
+            subMenuMucGia.style.display = "block"; 
+            mucGiaIcon.innerText = "▲";            
+        } else {
+            subMenuMucGia.style.display = "none";  
+            mucGiaIcon.innerText = "▼";
         }
     });
 }
@@ -156,10 +171,10 @@ class SanPham {
     }
     Hien_Thi_Rieng() {
         return `
-        <div class="product-solo">
+        <div style="width: 100%;">
             <button class="nut_quay_lai" onclick="Mo_Menu(Product_list)">&#8592; Quay l&#7841;i</button>
-            <div style="display:flex">
-                <img src="${this.anh}" style="width:50%">
+            <div class="product-solo">
+                <img src="${this.anh}">
                 <div>
                     <h1>Tên sản phẩm: ${this.ten}</h1>
                     <h2>Gi&#225;: ${this.gia}</h2>
@@ -181,48 +196,37 @@ const Product_list = [
     new SanPham("5","Nhẫn bạc đính đá ",30000,"anh/nhan_cong_chua.jpg","Nữ", "Nhẫn"),
     new SanPham("6","Vòng tay pha lê",40000,"anh/vong_tay_cute_god.jpg","Nữ", "Vòng"),
     new SanPham("7","Kính mạ vàng luxury",500000,'anh/kinh_luxury.jpg', "Nam", "Kính"),
-    new SanPham("8","Áo phông nam",300000,'anh/Áo phông nam.webp'),
-    new SanPham("9","Áo phông nữ",300000,'anh/Áo phông nữ.webp', "Nữ"),
-    new SanPham("10","Chân váy bé gái",200000,'anh/Chân váy bé gái.webp', "Nữ"),
-    new SanPham("11","Mũ lưỡi trai",150000,'anh/Mũ lưỡi trai.webp'),
-    new SanPham("12","Áo khoác nữ",400000,'anh/Áo khoác nữ.avif', "Nữ"),
-    new SanPham("13","Túi xách nữ",400000,'anh/túi xách nữ.jpg', "Nữ"),
-    new SanPham("14","Balo",350000,'anh/Balo.webp'),
-    new SanPham("15","Giày nike nam xám",250000,'anh/Nike nam xám.jpg'),
-    new SanPham("16","Giày nike nam xanh lá",250000,'anh/nike-nam.jpg'),
-    new SanPham("17","Giày nike nữ",250000,'anh/nike-nữ.jpg', "Nữ"),
-    new SanPham("18","Quần jean nam",500000,'anh/Quần jean nam.avif')
-
-
-
-
-
-
+    new SanPham("8","Áo phông nam",300000,'anh/Áo phông nam.webp',"Nam","Áo"),
+    new SanPham("9","Áo phông nữ",300000,'anh/Áo phông nữ.webp', "Nữ","Áo"),
+    new SanPham("10","Chân váy bé gái",200000,'anh/Chân váy bé gái.webp', "Nữ","Quần"),
+    new SanPham("11","Mũ lưỡi trai",150000,'anh/Mũ lưỡi trai.webp',"Nam","Phụ kiện"),
+    new SanPham("12","Áo khoác nữ",400000,'anh/Áo khoác nữ.avif', "Nữ","Áo"),
+    new SanPham("13","Túi xách nữ",400000,'anh/túi xách nữ.jpg', "Nữ","Phụ kiện"),
+    new SanPham("14","Balo",350000,'anh/Balo.webp',"Nam","Phụ kiện"),
+    new SanPham("15","Giày nike nam xám",250000,'anh/Nike nam xám.jpg',"Nam","Giày"),
+    new SanPham("16","Giày nike nam xanh lá",250000,'anh/nike-nam.jpg',"Nam","Giày"),
+    new SanPham("17","Giày nike nữ",250000,'anh/nike-nữ.jpg', "Nữ","Giày"),
+    new SanPham("18","Quần jean nam",500000,'anh/Quần jean nam.avif',"Nam","Quần")
 ];
 
 const product_hien_thi = document.getElementById("product-list");
 
 function Mo_Menu(list_you_need) {
     if (!product_hien_thi) return;
+    product_hien_thi.style.display = "grid"; 
     let product_hien_thi_ay = "";
-    
     for(let i of list_you_need) {
         product_hien_thi_ay += i.HienThiMenu();
     }
     product_hien_thi.innerHTML = product_hien_thi_ay;
-    
     for(let i of list_you_need) {
         let btn = document.getElementById(`${i.id}`);
         if(btn) {
             btn.addEventListener("click", function() {
+                product_hien_thi.style.display = "flex"; 
+                product_hien_thi.style.justifyContent = "center"; 
+                
                 product_hien_thi.innerHTML = i.Hien_Thi_Rieng();
-                const btnQuayLai = document.getElementById('btn-quay-lai');
-                if(btnQuayLai) {
-                    btnQuayLai.addEventListener('click', function() {
-                        Mo_Menu(Product_list);
-                    });
-
-                }
             });
         }
     }
@@ -235,18 +239,42 @@ menu_btns.forEach(btn => {
     btn.addEventListener('click', function() {
         let list = [];
         for (let u of Product_list) {
-            // Đã bổ sung lại logic lọc cho nút Nữ
+            
+            // Lấy ra con số tiền thật để tính toán (Ví dụ: "30000 vnd" -> 30000)
+            let giaTien = parseInt(u.gia.replace(/\D/g, ''));
+
+            // 1. Lọc theo giới tính
             if (btn.id === 'nam_btn' && u.gioi_tinh === "Nam") {
                 list.push(u);
             } else if (btn.id === 'nu_btn' && u.gioi_tinh === "Nữ") {
                 list.push(u);
-            } else if (btn.id === 'nhan_btn' && u.loai === "Nhẫn") {
+            } 
+            
+            // 2. Lọc theo tất cả các Thể loại
+            else if (btn.id === 'nhan_btn' && u.loai === "Nhẫn") {
                 list.push(u);
             } else if (btn.id === 'vong_btn' && u.loai === "Vòng") {
                 list.push(u);
             } else if (btn.id === 'mu_btn' && u.loai === "Mũ") {
                 list.push(u);
             } else if (btn.id === 'kinh_btn' && u.loai === "Kính") {
+                list.push(u);
+            } else if (btn.id === 'ao_btn' && u.loai === "Áo") {
+                list.push(u);
+            } else if (btn.id === 'quan_btn' && u.loai === "Quần") {
+                list.push(u);
+            } else if (btn.id === 'giay_btn' && u.loai === "Giày") {
+                list.push(u);
+            } else if (btn.id === 'phukien_btn' && u.loai === "Phụ kiện") {
+                list.push(u);
+            }
+            
+            // 3. Lọc theo Mức giá
+            else if (btn.id === 'gia_duoi_100' && giaTien < 100000) {
+                list.push(u);
+            } else if (btn.id === 'gia_100_200' && giaTien >= 100000 && giaTien <= 200000) {
+                list.push(u);
+            } else if (btn.id === 'gia_tren_200' && giaTien > 200000) {
                 list.push(u);
             }
         }
