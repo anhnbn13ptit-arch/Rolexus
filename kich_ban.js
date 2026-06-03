@@ -1,4 +1,4 @@
-//Khai báo nút bẫm
+//Giao diện
 const openBtn = document.getElementById('open-menu-btn');
 const closeBtn = document.getElementById('close-menu-btn');
 const sidebar = document.getElementById('rolexus-sidebar');
@@ -20,19 +20,20 @@ openBtn?.addEventListener('click', openMenu);
 closeBtn?.addEventListener('click', closeMenu);
 overlay?.addEventListener('click', closeMenu);
 
-//Menu thể loại
+// Menu thể loại
 if (theLoaiBtn && subMenuTheLoai){
-        theLoaiBtn.addEventListener('click',function(){
-                if (subMenuTheLoai.style.display === "none") {
+    theLoaiBtn.addEventListener('click',function(){
+        if (subMenuTheLoai.style.display === "none") {
             subMenuTheLoai.style.display = "block"; 
             theLoaiIcon.innerText = "▲";            
         } else {
             subMenuTheLoai.style.display = "none";  
             theLoaiIcon.innerText = "▼";
         }
-});
+    });
 }
-//Thanh tìm kiếm
+
+// Thanh tìm kiếm
 const searchBtn = document.getElementById('search-btn');
 const searchBar = document.getElementById('search-bar');
 const thanhTimKiem = document.getElementById('input');
@@ -52,8 +53,8 @@ thanhTimKiem?.addEventListener('input', function() {
     }
 });
 
-//Hệ thống đăng nhập
-const userBtn = document.getElementById('user-btn'); // Dòng này lúc nãy bạn xóa nhầm!
+// Hệ thống đăng nhập
+const userBtn = document.getElementById('user-btn'); 
 const loginModal = document.getElementById('login-modal');
 const closeLoginBtn = document.getElementById('close-login-btn');
 const nutXacNhanAuth = document.getElementById('nut_dang_nhap');
@@ -68,7 +69,8 @@ let danhSachTaiKhoan = JSON.parse(localStorage.getItem('rolexus_users')) || [
 ];
 
 let dangO_CheDoDangNhap = true;
-userBtn=document.getElementById('user-btn')
+
+
 userBtn?.addEventListener('click', () => { loginModal.classList.add('active'); });
 closeLoginBtn?.addEventListener('click', () => { loginModal.classList.remove('active'); });
 
@@ -128,6 +130,7 @@ if (nutXacNhanAuth) {
 }
 
 
+
 class SanPham {
     constructor(id, ten, gia, anh, gioi_tinh="Nam", loai="Khác") {
         this.id = id;
@@ -169,16 +172,13 @@ class SanPham {
 }
 
 const Product_list = [
-
-    new SanPham("1","Đồng hồ hình anime ", 30000, "anh/ke_chinh_phuc_thoi_gian.jpg", "Nam", "Đồng hồ"),
+    new SanPham("1","Đồng hồ hình anime", 30000, "anh/ke_chinh_phuc_thoi_gian.jpg", "Nam", "Đồng hồ"),
     new SanPham("2","Vòng cổ bạc", 250000, "anh/vong_co_sigma.png", "Nam", "Vòng"),
     new SanPham("3","Mũ Snapback Graffiti", 50000, "anh/crazy_head.jpg", "Nam", "Mũ"),
     new SanPham("4","Vương miện hoàng gia", 200000, "anh/vuong-mien-nu-hoang.jpg", "Nữ", "Mũ"),
     new SanPham("5","Nhẫn bạc đính đá", 30000, "anh/nhan_cong_chua.jpg", "Nữ", "Nhẫn"),
     new SanPham("6","Vòng tay pha lê", 40000, "anh/vong_tay_cute_god.jpg", "Nữ", "Vòng"),
     new SanPham("7","Kính mạ vàng luxury", 500000, 'anh/kinh_luxury.jpg', "Nam", "Kính")
-
-
 ];
 
 const product_hien_thi = document.getElementById("product-list");
@@ -209,7 +209,10 @@ menu_btns.forEach(btn => {
     btn.addEventListener('click', function() {
         let list = [];
         for (let u of Product_list) {
+            // Đã bổ sung lại logic lọc cho nút Nữ
             if (btn.id === 'nam_btn' && u.gioi_tinh === "Nam") {
+                list.push(u);
+            } else if (btn.id === 'nu_btn' && u.gioi_tinh === "Nữ") {
                 list.push(u);
             } else if (btn.id === 'nhan_btn' && u.loai === "Nhẫn") {
                 list.push(u);
@@ -233,7 +236,6 @@ All_sp_btn?.addEventListener('click', function() {
 
 // Chạy khởi tạo màn hình
 Mo_Menu(Product_list);
-
 
 //Giỏ hàng
 const cartBtn = document.getElementById('cart-btn');
