@@ -155,30 +155,49 @@ class SanPham {
         `;
     }
     Hien_Thi_Rieng() {
-        return ` 
-        <div class ="product-solo" style="display:flex">
-            <img src="${this.anh}" style="width:50%">
-            <div>
-                <h1>Tên sản phẩm : ${this.ten}</h1>
-                <h2>Giá: ${this.gia}</h2>
-                <h2>Dành cho : ${this.gioi_tinh}</h2>
-                <h2>Địa điểm: Rolexus, tầng 36 LandMark69</h2>
-                <h2>Nếu có hư hỏng hãy gọi tổng đài 676767 để được bảo hành</h2>
-                <button id="buy_${this.ten}_now" class="nut_mua" onclick="AddToCart('${this.id}')">Mua Ngay</button>
+        return `
+        <div class="product-solo">
+            <button class="nut_quay_lai" onclick="Mo_Menu(Product_list)">&#8592; Quay l&#7841;i</button>
+            <div style="display:flex">
+                <img src="${this.anh}" style="width:50%">
+                <div>
+                    <h1>Tên sản phẩm: ${this.ten}</h1>
+                    <h2>Gi&#225;: ${this.gia}</h2>
+                    <h2>D&#224;nh cho : ${this.gioi_tinh}</h2>
+                    <h2>&#272;&#7883;a &#273;i&#7875;m: Rolexus, Tầng 5 Landmark 81</h2>
+                    <h2>Nếu có hư hỏng hãy gọi đến tổng đài 12345678 để được bảo hành và hỗ trợ</h2>
+                    <button id="buy_${this.id}_now" class="nut_mua" onclick="AddToCart('${this.id}')">Mua Ngay</button>
+                </div>
             </div>
         </div>
         `;
     }
 }
-
 const Product_list = [
-    new SanPham("1","Đồng hồ hình anime", 30000, "anh/ke_chinh_phuc_thoi_gian.jpg", "Nam", "Đồng hồ"),
-    new SanPham("2","Vòng cổ bạc", 250000, "anh/vong_co_sigma.png", "Nam", "Vòng"),
-    new SanPham("3","Mũ Snapback Graffiti", 50000, "anh/crazy_head.jpg", "Nam", "Mũ"),
-    new SanPham("4","Vương miện hoàng gia", 200000, "anh/vuong-mien-nu-hoang.jpg", "Nữ", "Mũ"),
-    new SanPham("5","Nhẫn bạc đính đá", 30000, "anh/nhan_cong_chua.jpg", "Nữ", "Nhẫn"),
-    new SanPham("6","Vòng tay pha lê", 40000, "anh/vong_tay_cute_god.jpg", "Nữ", "Vòng"),
-    new SanPham("7","Kính mạ vàng luxury", 500000, 'anh/kinh_luxury.jpg', "Nam", "Kính")
+    new SanPham("1","Đồng hồ hình anime ",30000,"anh/ke_chinh_phuc_thoi_gian.jpg", "Nam", "Đồng hồ"),
+    new SanPham("2","Vòng cổ bạc",250000,"anh/vong_co_sigma.png", "Nam", "Vòng"),
+    new SanPham("3","Mũ Snapback Graffiti ",50000,"anh/crazy_head.jpg", "Nam", "Mũ"),
+    new SanPham("4","Vương miệng hoàng gia",200000,"anh/vuong-mien-nu-hoang.jpg","Nữ", "Mũ"),
+    new SanPham("5","Nhẫn bạc đính đá ",30000,"anh/nhan_cong_chua.jpg","Nữ", "Nhẫn"),
+    new SanPham("6","Vòng tay pha lê",40000,"anh/vong_tay_cute_god.jpg","Nữ", "Vòng"),
+    new SanPham("7","Kính mạ vàng luxury",500000,'anh/kinh_luxury.jpg', "Nam", "Kính"),
+    new SanPham("8","Áo phông nam",300000,'anh/Áo phông nam.webp'),
+    new SanPham("9","Áo phông nữ",300000,'anh/Áo phông nữ.webp', "Nữ"),
+    new SanPham("10","Chân váy bé gái",200000,'anh/Chân váy bé gái.webp', "Nữ"),
+    new SanPham("11","Mũ lưỡi trai",150000,'anh/Mũ lưỡi trai.webp'),
+    new SanPham("12","Áo khoác nữ",400000,'anh/Áo khoác nữ.avif', "Nữ"),
+    new SanPham("13","Túi xách nữ",400000,'anh/túi xách nữ.jpg', "Nữ"),
+    new SanPham("14","Balo",350000,'anh/Balo.webp'),
+    new SanPham("15","Giày nike nam xám",250000,'anh/Nike nam xám.jpg'),
+    new SanPham("16","Giày nike nam xanh lá",250000,'anh/nike-nam.jpg'),
+    new SanPham("17","Giày nike nữ",250000,'anh/nike-nữ.jpg', "Nữ"),
+    new SanPham("18","Quần jean nam",500000,'anh/Quần jean nam.avif')
+
+
+
+
+
+
 ];
 
 const product_hien_thi = document.getElementById("product-list");
@@ -197,6 +216,13 @@ function Mo_Menu(list_you_need) {
         if(btn) {
             btn.addEventListener("click", function() {
                 product_hien_thi.innerHTML = i.Hien_Thi_Rieng();
+                const btnQuayLai = document.getElementById('btn-quay-lai');
+                if(btnQuayLai) {
+                    btnQuayLai.addEventListener('click', function() {
+                        Mo_Menu(Product_list);
+                    });
+
+                }
             });
         }
     }

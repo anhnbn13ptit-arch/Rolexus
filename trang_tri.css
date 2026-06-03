@@ -38,9 +38,13 @@ box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15p
     padding: 20px;
 }
 .product-solo {width:900px;height:800px;border-radius:25%;gap: 30px; }
-.product-solo h1 {color: #FFFFFF;
-background: #232323;
-text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;border-radius:12px ;text-align: center;}
+.product-solo h1 {
+    color: #FFFFFF;
+    background: #232323;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    border-radius: 12px;
+    text-align: center;
+}
 .product-solo img {border: 5px solid #05131C;
 border-radius: 27px;-webkit-box-shadow: -8px -7px 15px 5px #000000; 
 box-shadow: -8px -7px 15px 5px #000000;width:700px;height:320px}
@@ -481,4 +485,23 @@ box-shadow: -4px 7px 16px 9px #39dee7;
 }
 #mat_khau:focus {
     color: white !important; 
+}
+
+.nut_quay_lai {
+    display: inline-block;
+    margin: 10px 0 15px 10px;
+    background-color: #172e1d;
+    color: #fbff0a;
+    border: 2px solid #fbff0a;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nut_quay_lai:hover {
+    background-color: #d8e546;
+    color: #000;
 }
