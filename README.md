@@ -1,2 +1,0 @@
-# Rolexus
-Bài tiểu luận

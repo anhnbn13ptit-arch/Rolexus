@@ -2,8 +2,9 @@
 <head>
     <title>Trang web của nhóm </title> <meta charset="UTF-8">
     <link rel="stylesheet" href="trang_tri.css">
+    <link rel="icon" type="image/png" href="anh/file_he_thong/logo_icon.png">
 </head>
-<body>
+<body >
     <header class="rolexus-header">
     
         <div class="header-left">
@@ -49,18 +50,6 @@
         </div>
     </div>
     </div>
-    <div id="cart-modal" class="modal-overlay">
-        <div class="modal-box" style="width: 400px; height: auto; max-height: 80vh; overflow-y: auto;">
-            <span id="close-cart-btn" class="close-btn">✖</span>
-            <h2 style="font-style:italic">Giỏ Hàng Của Bạn</h2>
-            
-            <div id="cart-items-container"></div>
-            
-            <div style="margin-top: 20px; text-align: right; border-top: 2px solid #000; padding-top: 10px;">
-                <h3>Tổng: <span id="cart-total-price">0</span> VND</h3>
-            </div>
-            <button id="checkout-btn" class="nut_mua" style="width: 100%; margin-top: 10px; font-size: 20px;">Thanh Toán</button>
-        </div>
     </div>
     
     <div id="menu-overlay" ></div>
@@ -73,6 +62,21 @@
             <button id ="nam_btn" class="nut_menu_style nut_menu">Thời trang nam</button><br>
             <div></div><br>
             <button id="nu_btn" class="nut_menu_style nut_menu">Thời trang nữ</button><br>
+            <hr style="border-color: #555; margin: 10px 0;"><br>
+
+            <button id="the_loai_btn" class="nut_menu_style" style="width: 100%; text-align: left; display: flex; justify-content: space-between;">
+                <span>🏷️ Thể loại</span> 
+                <span id="the_loai_icon">▼</span>
+            </button><br>
+
+            <div id="sub_menu_the_loai" style="display: none; padding-left: 20px; margin-top: 5px;">
+                <button id="nhan_btn" class="nut_menu_style nut_menu" style="margin-bottom: 15px;">💍 Nhẫn</button><br>
+                <button id="vong_btn" class="nut_menu_style nut_menu" style="margin-bottom: 15px;">📿 Vòng & Dây chuyền</button><br>
+                <button id="mu_btn" class="nut_menu_style nut_menu" style="margin-bottom: 15px;">🧢 Mũ</button><br>
+                <button id="kinh_btn" class="nut_menu_style nut_menu" style="margin-bottom: 15px;">👓 Kính</button><br>
+            </div>
+            
+
             
         </ul>
     </nav>
