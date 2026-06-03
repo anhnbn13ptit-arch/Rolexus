@@ -68,7 +68,7 @@ let danhSachTaiKhoan = JSON.parse(localStorage.getItem('rolexus_users')) || [
 ];
 
 let dangO_CheDoDangNhap = true;
-
+userBtn=document.getElementById('user-btn')
 userBtn?.addEventListener('click', () => { loginModal.classList.add('active'); });
 closeLoginBtn?.addEventListener('click', () => { loginModal.classList.remove('active'); });
 
@@ -169,6 +169,7 @@ class SanPham {
 }
 
 const Product_list = [
+
     new SanPham("1","Đồng hồ hình anime ", 30000, "anh/ke_chinh_phuc_thoi_gian.jpg", "Nam", "Đồng hồ"),
     new SanPham("2","Vòng cổ bạc", 250000, "anh/vong_co_sigma.png", "Nam", "Vòng"),
     new SanPham("3","Mũ Snapback Graffiti", 50000, "anh/crazy_head.jpg", "Nam", "Mũ"),
@@ -176,6 +177,8 @@ const Product_list = [
     new SanPham("5","Nhẫn bạc đính đá", 30000, "anh/nhan_cong_chua.jpg", "Nữ", "Nhẫn"),
     new SanPham("6","Vòng tay pha lê", 40000, "anh/vong_tay_cute_god.jpg", "Nữ", "Vòng"),
     new SanPham("7","Kính mạ vàng luxury", 500000, 'anh/kinh_luxury.jpg', "Nam", "Kính")
+
+
 ];
 
 const product_hien_thi = document.getElementById("product-list");
